@@ -1,0 +1,51 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.mainContainer {
+    font-family: "Roboto Light", sans-serif;
+    height: 100%;
+    min-width: 50%;
+    background-color: #f2f2f2;
+    box-shadow: 1px 2px 8px 1px;
+    padding: 50px;
+}
+
+h4 {
+    font-weight: lighter;
+    margin: 10px 0 10px 0;
+}
+
+.enumerator {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #bfbfbf;
+    border: 1px solid black;
+}
+
+.educationDataContainer {
+    width: 70%;
+    margin-top: 20px;
+    display: flex;
+}
+
+h5 {
+    margin: 10px;
+    font-family: "Monospaced", sans-serif;
+    font-weight: lighter;
+}
+
+.jobDataContainer {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}

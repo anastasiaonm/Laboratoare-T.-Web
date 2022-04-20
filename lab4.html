@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formular</title>
+    <link rel="stylesheet" href="static/lab4.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="mainContainer">
+        <section class="sectiunea1">
+            <form class="form">
+                <div>
+                    <input class="placeHolder" for="firstName" type="text" id="firstName" name="firstName" placeholder="First Name">
+                    <div class="error-text" id="firstNameError"></div>
+                </div>
+
+                <div>
+                    <input class="placeHolder" for="lastName" type="text" id="lastName" name="lastName" placeholder="Last Name">
+                    <div class="error-text" id="lastNameError"></div>
+                </div>
+
+                <div>
+                    <input class="placeHolder" for="email "type="text" id="email" name="email" placeholder="Email">
+                    <div class="error-text" id="emailError"></div>
+                </div>
+
+                <div>
+                    <input class="placeHolder" for="phone" type="text" id="phone" name="phone" placeholder="Phone">
+                    <div class="error-text" id="phoneError"></div>
+                </div>
+
+                <div>
+                    <input class="placeHolder" for="address" type="text" id="address" name="address" placeholder="Physical Address">
+                    <div class="error-text" id="addressError"></div>
+                </div>
+
+                <div>
+                    <select class="placeHolder" for="profession" type="text" id="professionSelect" name="profession" placeholder="Profession">
+
+                    </select>
+                    <div class="error-text" id="professionError"></div>
+                </div>
+            </form>
+        </section>
+
+        <section class="sectiunea2">
+            <div style="display: flex">
+                <button id="addLinkButton" class="addButton">+</button>
+                <h6 class="addSocialTitle">Add Social Link</h6>
+            </div>
+            <div class="logosContainer" style="display: flex">
+
+            </div>
+        </section>
+
+        <section class="sectiunea3">
+
+            <div style="display: flex">
+                <button id="addEducationButton" class="addButton">+</button>
+                <h6 class="addSocialTitle">Add Education</h6>
+            </div>
+
+        </section>
+
+        <section class="sectiunea4">
+
+            <div style="display: flex">
+                <button id="addJobButton" class="addButton">+</button>
+                <h6 class="addSocialTitle">Add Jobs</h6>
+            </div>
+
+        </section>
+
+        <button class="saveProfileButton">Save My Profile</button>
+    </div>
+    <script>
+        app.use("/static", express.static('./static/'));
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="static/lab4.js"></script>
+</body>
+</html>

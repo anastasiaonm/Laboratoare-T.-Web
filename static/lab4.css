@@ -1,0 +1,196 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainContainer {
+    height: 100%;
+    min-width: 50%;
+    background-color: #f2f2f2;
+    box-shadow: 1px 2px 8px 1px;
+    padding: 50px;
+    overflow-y: scroll;
+}
+
+.form {
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form > div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.error-text {
+    color: red;
+    font-size: 12px;
+}
+
+input.error {
+    border-color: red;
+    color: red;
+}
+
+.placeHolder {
+    font-style: italic;
+    width: 100%;
+    border: 1px solid #626262;
+    padding: 5px;
+}
+
+input {
+    border-color: #A3A3A3;
+}
+
+#professionSelect {
+    width: 100%;
+    padding: 5px;
+}
+
+
+.sectiunea2 {
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.addButton {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.addButton:hover {
+    background-color: #bfbfbf;
+}
+
+.addSocialTitle {
+    font-size: 1.5rem;
+}
+
+.sectiunea3 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 20px 0;
+}
+
+.addEducationContainer {
+    height: fit-content;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #626262;
+}
+
+.educationTitleInput {
+    width: 30%;
+    margin: 20px;
+}
+
+.graduationInput {
+    width: 30%;
+    margin: 20px;
+}
+
+.educationTypeSelect {
+    width: 30%;
+    margin: 20px;
+}
+
+.submitEducation {
+    margin: 20px;
+}
+
+.educationDataContainer {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.educationDataContainer > h5 {
+    margin: 10px 10px 0 10px;
+}
+
+.enumerator {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #bfbfbf;
+}
+
+.customPlaceholder::-webkit-input-placeholder {
+    color: red;
+}
+
+.addJobContainer {
+    height: fit-content;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 2px solid #626262;
+    padding: 10px;
+}
+
+.jobNameSelect {
+    width: 60%;
+    margin: 10px;
+}
+
+.startDate {
+    margin: 10px;
+    width: 60%;
+}
+
+.endDate {
+    margin: 10px;
+    width: 60%;
+}
+
+.citySelect {
+    margin: 10px;
+    width: 60%;
+}
+
+.companyNameInput {
+    margin: 10px;
+    width: 60%;
+}
+
+.present {
+    margin: 0;
+}
+
+.submitJob {
+    margin: 10px;
+    width: 150px;
+}
+
+.jobDataContainer {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.jobDataContainer > h5 {
+    margin: 10px 10px 0 10px;
+}
+
+.saveProfileButton {
+    margin-top: 20px;
+}
