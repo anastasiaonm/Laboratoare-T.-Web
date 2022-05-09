@@ -5,7 +5,6 @@ $(function() {
     let professions;
     let educationTypes;
     let jobs;
-    let fdata;
 
     $.ajax({
         async:false,
@@ -28,14 +27,6 @@ $(function() {
         url: "http://localhost:3000/job-name/14",
         success: function(data) {
             jobs = data;
-        }
-    });
-
-    $.ajax({
-        async:false,
-        url: "http://localhost:3000/form-data",
-        success: function(data) {
-            console.log(data);
         }
     });
 
@@ -72,18 +63,13 @@ $(function() {
     });
 
     function check_fname() {
-        let pattern = /^[a-zA-Z]*$/;
         let fname = $("#firstName").val();
-        if (pattern.test(fname) && fname === '') {
+        fname = fname.trim();
+        if (fname === '') {
             $("#firstNameError").html("Name Required");
             $("#firstNameError").show();
-        } else {
-            $("#firstNameError").html("Should contain only Letters");
-            $("#firstNameError").show();
             $("#firstName").css("border","2px solid #F90A0A");
-            error_fname = false;
-        }
-        if (pattern.test(fname) && fname !== '') {
+        } else {
             $("#firstNameError").hide();
             $("#firstName").css("border","2px solid gray");
             error_fname = true;
@@ -91,18 +77,13 @@ $(function() {
     }
 
     function check_lname() {
-        let pattern = /^[a-zA-Z]*$/;
         let lname = $("#lastName").val()
-        if (pattern.test(lname) && lname === '') {
+        lname = lname.trim();
+        if (lname === '') {
             $("#lastNameError").html("Surname Required");
             $("#lastNameError").show();
-        } else {
-            $("#lastNameError").html("Should contain only Letters");
-            $("#lastNameError").show();
             $("#lastName").css("border","2px solid #F90A0A");
-            error_lname = false;
-        }
-        if (pattern.test(lname) && lname !== '') {
+        } else {
             $("#lastNameError").hide();
             $("#lastName").css("border","2px solid gray");
             error_lname = true;
@@ -110,21 +91,21 @@ $(function() {
     }
 
     function check_email() {
-        let pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         let email = $("#email").val();
-        if (pattern.test(email) && email === '') {
-            $("#emailError").html("Email is Required");
-            $("#emailError").show();
+        if (email.includes("@") && email.includes(".")) {
+            $("#emailError").hide();
+            $("#email").css("border", "2px solid gray");
+            error_email = true;
         } else {
             $("#emailError").html("Email must contain \"@\" and \".\"");
             $("#emailError").show();
             $("#email").css("border","2px solid #F90A0A");
             error_email = false;
         }
-        if (pattern.test(email) && email !== '') {
-            $("#emailError").hide();
-            $("#email").css("border", "2px solid gray");
-            error_email = true;
+        if (email === '') {
+            $("#emailError").html("Email is Required");
+            $("#emailError").show();
+            $("#email").css("border","2px solid #F90A0A");
         }
     }
 
@@ -132,21 +113,25 @@ $(function() {
         let phone = $("#phone").val();
         let phone_length = $("#phone").val().length;
         let phone_error = $("#phoneError");
+        phone = phone.trim();
 
         if (phone === '') {
             phone_error.html("Phone is Required");
             phone_error.show();
+            $("#phone").css("border","2px solid #F90A0A");
             error_phone = false;
         } else {
             error_phone = false;
-            if (phone.includes("+373") && phone_length !== 12) {
+            if (phone.startsWith("+373") && phone_length !== 12) {
                 phone_error.html("Phone should start with +373 and have 12 characters");
                 phone_error.show();
+                $("#phone").css("border","2px solid #F90A0A");
                 return;
             }
-            if (phone[0] === "0" && phone_length !== 9) {
+            if (phone.startsWith("0") && phone_length !== 9) {
                 phone_error.html("Phone should start with 0 and have 9 characters");
                 phone_error.show();
+                $("#phone").css("border","2px solid #F90A0A");
                 return;
             }
             phone_error.hide();
@@ -192,11 +177,28 @@ $(function() {
         e.target.classList.toggle("focus");
 
         if(link.includes("facebook"))
-            logo = "<a class='linkLogo'><img src='../images/facebook.png' style='margin: 10px; width: 40px'><img></a>";
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://www.facebook.com/</a>";
+            // logo = "<a class='linkLogo'><img src='../images/facebook.png' style='margin: 10px; width: 40px'><img></a>";
         else if(link.includes("instagram"))
-            logo = "<a class='linkLogo'><img src='../images/instagram.png' style='margin: 10px; width: 40px'><img></a>";
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://www.instagram.com/</a>";
+            // logo = "<a class='linkLogo'><img src='../images/instagram.png' style='margin: 10px; width: 40px'><img></a>";
         else if(link.includes("linkedin"))
-            logo = "<a class='linkLogo'><img src='../images/linkedin.png' style='margin: 10px; width: 40px'><img></a>";
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://www.linkedin.com/</a>";
+            // logo = "<a class='linkLogo'><img src='../images/linkedin.png' style='margin: 10px; width: 40px'><img></a>";
+        else if(link.includes("vk"))
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://vk.com/</a>";
+        else if(link.includes("pinterest"))
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://www.pinterest.com/</a>";
+        else if(link.includes("twitter"))
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://twitter.com//</a>";
+        else if(link.includes("myspace"))
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://myspace.com/</a>";
+        else if(link.includes("reddit"))
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://www.reddit.com/</a>";
+        else if(link.includes("snapchat"))
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://www.snapchat.com/</a>";
+        else if(link.includes("youtube"))
+            logo = "<a href class='linkLogo' style='margin: 10px'>https://www.youtube.com/</a>";
         else $(".logosContainer").append("<h5 style='color: red'>Incorrect URL</h5>");
 
         $(".linkInput").remove();
@@ -219,7 +221,6 @@ $(function() {
         $(".sectiunea2").append(input);
         $(".linkInput").focusout((e) => checkLink(e));
     }
-
 
     addLinkButton.click((e) => addSocialLink(e));
 
@@ -338,7 +339,7 @@ $(function() {
         jobsList.push({
             jobName: $(".jobNameSelect").find(":selected").text(),
             startDate: $(".startDate").val(),
-            endDate: ($(".endDate").val()) ? $(".endDate").val() : "Present",
+            endDate: ($(".present").is(':checked')) ? "Present" : $(".endDate").val(),
             city: $(".citySelect").val(),
             companyName: $(".companyNameInput").val()
         });
@@ -357,6 +358,15 @@ $(function() {
         $(".addJobContainer").remove();
         document.querySelector("#addJobButton").classList.toggle("focus");
     }
+    let jobCounter = 0;
+
+    function setEndDate() {
+        if($(".present").is(':checked')) {
+            $(".endDate").hide();
+        } else {
+            $(".endDate").show();
+        }
+    }
 
     function addJob(e) {
         if(e.target.classList[1] === "focus")
@@ -370,14 +380,37 @@ $(function() {
             "<label for='startDate' style='margin-left: 10px'>Start Date</label><input class='startDate' type='date' placeholder='Start Date' id='startDate'><label style='margin-left: 10px'>End Date</label>" +
             "<div style='display: flex; align-items: center; justify-content: flex-start; width: 100%'><input class='endDate' type='date' placeholder='End Date'>" +
             "<input class='present' type='checkbox' placeholder='In present'><span style='margin-left: 10px'>In present</span></div>" +
-            "<input type='text' class='citySelect' name='City' placeholder='City'>" +
-            "<input class='companyNameInput' type='text' placeholder='Company' >" +
+            "<select type='text' id='city" + jobCounter + "' class='citySelect' name='City' placeholder='City'>" +
+            "<option value='chisinau'>Chisinau</option>" +
+            "<option value='orhei'>Orhei</option>" +
+            "<option value='balti'>Bălți</option>" +
+            "<option value='tiraspot'>Tiraspol</option>" +
+            "<option value='soroca'>Soroca</option>" +
+            "<option value='nisporeni'>Nisporeni</option>" +
+            "<option value='bender'>Bender</option>" +
+            "</select>" +
+            "<select id='companyName" + jobCounter + "' class='companyNameInput' type='text' placeholder='Company' >" +
+            "</select>" +
             "<button class='submitJob'>Add Job</button>" +
             "</div>";
+
 
         $(".sectiunea4").append(input);
         $(".jobNameSelect").append(jobs.map((job) => {return "<option value=" + job.name + ">" + job.name + "</option>"}));
         $(".submitJob").click((e) => checkJob(e));
+        $(".present").click(() => setEndDate());
+        $("#city" + jobCounter).on("change", function(){
+            let citySelect = $("#city" + jobCounter).val();
+            let companyNameSelect = $("#companyName" + jobCounter);
+            $.ajax({
+                async:false,
+                url: "http://localhost:3000/companies/14/city/" + citySelect,
+                success: function(data) {
+                    companyNameSelect.html("");
+                    companyNameSelect.append(data.map((profession) => {return "<option value=" + profession.label +">" + profession.label + "</option>"}));
+                }
+            });
+        })
     }
     addJobsButton.click((e) => addJob(e));
 

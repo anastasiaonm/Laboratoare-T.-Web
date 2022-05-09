@@ -1,16 +1,6 @@
 $(function() {
 
     let formData;
-    $.ajax({
-        async:false,
-        url: "http://localhost:3000/form-data",
-        success: function(data) {
-            formData = data;
-        },
-        error: (err) => console.log(err)
-    });
-
-    console.log(formData);
 
     //SELECTORS
     let name = $(".name");
@@ -32,16 +22,7 @@ $(function() {
     }
 
     function pickLogo(link) {
-        let logo;
-
-        if(link.includes("facebook"))
-            logo = "<a class='linkLogo' href="+ link +"><img src='../images/facebook.png' style='margin: 10px; width: 40px'><img></a>";
-        else if(link.includes("instagram"))
-            logo = "<a class='linkLogo' href="+ link +"><img src='../images/instagram.png' style='margin: 10px; width: 40px'><img></a>";
-        else if(link.includes("linkedin"))
-            logo = "<a class='linkLogo' href="+ link +"><img src='../images/linkedin.png' style='margin: 10px; width: 40px'><img></a>";
-
-        return logo;
+        return "<a href="+ link +">" + link + "</a>";
     }
 
     function putSection2() {
@@ -72,9 +53,17 @@ $(function() {
                     "</div>");
         });
     }
+    $.ajax({
+        async:false,
+        url: "http://localhost:3000/form-data",
+        success: function(data) {
+            formData = data;
+            putSection1();
+            putSection2();
+            putSection3();
+            putSection4();
+        },
+        error: (err) => console.log(err)
+    });
 
-    putSection1();
-    putSection2();
-    putSection3();
-    putSection4();
 });
